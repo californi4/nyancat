@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#000428, #1a1a40);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Floating stars background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://i.imgur.com/eU24SxU.png');
+    opacity: 0.3;
+    animation: starsMove 40s linear infinite;
+    z-index: -1;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2000px); }
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo img {
+    width: 120px;
+    filter: drop-shadow(0 0 8px #ff77ff);
+}
+
+/* Gallery */
+.gallery {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* Item */
+.item {
+    width: 330px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #ff69f0;
+    box-shadow: 0 0 10px #ff69f0;
+    transition: 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 20px #ff69f0;
+}
+
+.item-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px #ff6cff;
+}
+
+/* Image */
+.item img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ff69f0;
+    transition: transform 0.3s ease;
+}
+
+.item img:hover {
+    transform: scale(1.04) rotate(-1deg);
+}
+
+/* Cute floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.item {
+    animation: float 4s ease-in-out infinite;
+}
